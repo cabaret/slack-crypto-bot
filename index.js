@@ -60,19 +60,19 @@ const fetchApiResponse = url =>
     .catch(console.log);
 
 controller.hears(['eth', 'ethereum'], BOT_TRIGGERS, (bot, message) =>
-  fetchApiResponse(ETH_ENDPOINT_EUR).then(data =>
+  fetchApiResponse(ETH_ENDPOINT_EUR).then(attachments =>
     bot.reply(message, {
       text: '*Ethereum (ETH)*',
-      attachments: data,
+      attachments,
     })
   )
 );
 
 controller.hears(['bitcoin', 'btc'], BOT_TRIGGERS, (bot, message) =>
-  fetchApiResponse(BTC_ENDPOINT_EUR).then(data =>
+  fetchApiResponse(BTC_ENDPOINT_EUR).then(attachments =>
     bot.reply(message, {
       text: '*Bitcoin (BTC)*',
-      attachments: data,
+      attachments,
     })
   )
 );
