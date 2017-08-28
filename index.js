@@ -13,6 +13,7 @@ const API_ENDPOINT = 'https://api.coinmarketcap.com/v1/ticker';
 
 const ETH_ENDPOINT_EUR = `${API_ENDPOINT}/ethereum?convert=EUR`;
 const BTC_ENDPOINT_EUR = `${API_ENDPOINT}/bitcoin?convert=EUR`;
+const LTC_ENDPOINT_EUR = `${API_ENDPOINT}/litecoin?convert=EUR`;
 
 const controller = Botkit.slackbot({
   debug: false,
@@ -72,6 +73,16 @@ controller.hears(['bitcoin', 'btc'], BOT_TRIGGERS, (bot, message) =>
   fetchApiResponse(BTC_ENDPOINT_EUR).then(attachments =>
     bot.reply(message, {
       text: '*Bitcoin (BTC)*',
+      attachments,
+    })
+  )
+);
+
+
+controller.hears(['litecoin', 'ltc'], BOT_TRIGGERS, (bot, message) =>
+  fetchApiResponse(LTC_ENDPOINT_EUR).then(attachments =>
+    bot.reply(message, {
+      text: '*Litecoin (LTC)*',
       attachments,
     })
   )
