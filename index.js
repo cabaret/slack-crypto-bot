@@ -78,7 +78,6 @@ controller.hears(['bitcoin', 'btc'], BOT_TRIGGERS, (bot, message) =>
   )
 );
 
-
 controller.hears(['litecoin', 'ltc'], BOT_TRIGGERS, (bot, message) =>
   fetchApiResponse(LTC_ENDPOINT_EUR).then(attachments =>
     bot.reply(message, {
